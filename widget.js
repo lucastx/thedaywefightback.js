@@ -67,12 +67,7 @@ var _tdwfb_config = (typeof tdwfb_config  !== 'undefined') ? tdwfb_config  : {};
   var activeCampaign;
   var ASSET_URL;
 
-  if (widgetConfig.localAssets) {
-    ASSET_URL = '../thedaywefightback/';
-  } else {
-    ASSET_URL = '//d1agz031tafz8n.cloudfront.net/thedaywefightback.js' +
-      '/thedaywefightback/';
-  }
+  ASSET_URL = 'http://apps.lucasteixeira.com/thedaywefightback/thedaywefightback/';
 
   // Cookie helpers, taken from w3schools
   function setCookie(c_name, value, seconds) {
