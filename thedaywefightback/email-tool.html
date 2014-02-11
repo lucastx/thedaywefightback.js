@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="" name="description"><!-- Bootstrap core CSS -->
-
+	<title>Email Congress - The Day We Fight Back</title>
 	<link href="css/call-email-tool.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
@@ -120,7 +120,7 @@ I'm also urging you to oppose S. 1631, the so-called FISA Improvements Act. This
 			 return o;
 			};
 			var rpc = new easyXDM.Rpc({
-			  remote: "http://email-congress.herokuapp.com/xdm/cors/"
+			  remote: "https://email-congress.herokuapp.com/xdm/cors/"
 			},
 			{
 			  remote: {
@@ -168,14 +168,18 @@ I'm also urging you to oppose S. 1631, the so-called FISA Improvements Act. This
 	          return false;
 	        }
 
-			console.log(data);
 			rpc.request({
-			  url: "http://email-congress.herokuapp.com/email",
+			  url: "https://email-congress.herokuapp.com/email",
 			  method: "POST",
 			  data: data
 			}, function(response){
-			  window.location = 'thank-you.html';
+				window.location = 'thank-you.html';
 			});
+			// Assume success
+			setTimeout(function () {
+				window.location = 'thank-you.html';
+			}, 5000);
+
 			return false;
 			});
 		
@@ -203,52 +207,72 @@ I'm also urging you to oppose S. 1631, the so-called FISA Improvements Act. This
 		
 			(function() {
 		
-			var referalMap = {
-				'om': {
-					name: 'Free Press',
-					policy: 'http://www.freepress.net/privacy-copyright',
-					weight: 100
-				},
-				'fftf': {
-					name: 'Fight for the Future',
-					policy: 'http://www.fightforthefuture.org/privacy/',
-					weight: 100
-				},
-				'eff': {
-					name: 'EFF',
-					policy: 'https://www.eff.org/policy',
-					weight: 100
-				},
-				'an': {
-					name: 'Access Now',
-					policy: 'https://www.accessnow.org/pages/privacy-policy',
-					weight: 100
-				},
-				'dp': {
-					name: 'Demand Progress',
-					policy: 'http://www.demandprogress.org/privacy/',
-					weight: 100
-				},
-				'om': {
-					name: 'Open Media',
-					policy: 'https://openmedia.ca/privacy',
-					weight: 100
-				},
-				'om': {
-					name: 'The Other 98%',
-					policy: 'http://other98.com/privacy/',
-					weight: 100
-				},
-				'om': {
-					name: 'Daily Kos',
-					policy: 'http://www.dailykos.com/special/privacy',
-					weight: 100
-				},
-				'om': {
-					name: 'ACLU',
-					policy: 'https://www.aclu.org/american-civil-liberties-union-privacy-statement',
-					weight: 100
-				}
+			    var referalMap = {
+			        'fp': {
+			            name: 'Free Press',
+			            policy: 'http://www.freepress.net/privacy-copyright',
+			            weight: 2
+			        },
+			        'fftf': {
+			            name: 'Fight for the Future',
+			            policy: 'http://www.fightforthefuture.org/privacy/',
+			            weight: 15
+			        },
+			        'eff': {
+			            name: 'EFF',
+			            policy: 'https://www.eff.org/policy',
+			            weight: 15
+			        },
+			        'an': {
+			            name: 'Access Now',
+			            policy: 'https://www.accessnow.org/pages/privacy-policy',
+			            weight: 15
+			        },
+			        'dp': {
+			            name: 'Demand Progress',
+			            policy: 'http://www.demandprogress.org/privacy/',
+			            weight: 15
+			        },
+			        'om': {
+			            name: 'Open Media',
+			            policy: 'https://openmedia.ca/privacy',
+			            weight: 2
+			        },
+			        'ra': {
+			            name: 'RootsAction',
+			            policy: 'http://www.rootsaction.org/privacy-policy',
+			            weight: 6
+			        },
+			        'o98': {
+			            name: 'The Other 98%',
+			            policy: 'http://other98.com/privacy/',
+			            weight: 5
+			        },
+			        'dk': {
+			            name: 'Daily Kos',
+			            policy: 'http://www.dailykos.com/special/privacy',
+			            weight: 4
+			        },
+			        'ca': {
+			            name: 'Credo Action',
+			            policy: 'http://credoaction.com/privacy/',
+			            weight: 5
+			        },
+			        'aclu': {
+			            name: 'ACLU',
+			            policy: 'https://www.aclu.org/american-civil-liberties-union-privacy-statement',
+			            weight: 10
+			        },
+			        'pda': {
+			            name: 'Progressive Democrats of America',
+			            policy: 'http://www.pdamerica.org/about-pda/privacy-policy',
+			            weight: 0
+			        },
+			        'of': {
+			            name: 'Campaign for America\'s Future',
+			            policy: 'http://ourfuture.org/privacy',
+			            weight: 0
+			        }
 			};
 			var total = 0;
 			for(key in referalMap) {

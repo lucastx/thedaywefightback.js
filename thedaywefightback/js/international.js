@@ -36,7 +36,7 @@
           return false;
         }
         var rpc = new easyXDM.Rpc({
-            remote: "http://email-congress.herokuapp.com/xdm/cors/"
+            remote: "https://email-congress.herokuapp.com/xdm/cors/"
         },
         {
             remote: {
@@ -45,18 +45,17 @@
         });
 
         rpc.request({
-          url: "http://email-congress.herokuapp.com/signature",
+          url: "https://email-congress.herokuapp.com/signature",
           method: "POST",
           data: data
         }, function(response){
-          $('.international .rightside.top.before').addClass('animate flipOutX');
-          window.setTimeout(function(){
-            $('.international .rightside.top.before').addClass("hidden");
-            $('.international .rightside.top.thanks').removeClass("hidden").addClass("flipInX");
-            ;}, 1000);
-
-
         });
+        // Assume success
+        $('.international .rightside.top.before').addClass('animate flipOutX');
+        window.setTimeout(function(){
+          $('.international .rightside.top.before').addClass("hidden");
+          $('.international .rightside.top.thanks').removeClass("hidden").addClass("flipInX");
+        ;}, 1000);
         return false;
       });
    
@@ -116,7 +115,7 @@
               policy: 'https://openmedia.ca/privacy'
           },
           'efa': {
-              name: 'Electronic Frontiers America',
+              name: 'Electronic Frontiers Australia',
               policy: 'https://www.efa.org.au/about/privacy-policy'
           }
       };

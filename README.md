@@ -4,5 +4,3 @@ Esse script é um hack quick'n'dirty pra adaptar a tradução do banner feita pe
 @prenass pro site da [Oficina Antivigilância][http://antivigilancia.tk]
 
 Pra mais informações sobre o banner, veja o repo original:
-
-https://github.com/tfrce/thedaywefightback.js
